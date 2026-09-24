@@ -1,5 +1,9 @@
 package br.edu.utfpr.td.tsi;
 
+import br.edu.utfpr.td.tsi.interfaces.Carregador;
+import br.edu.utfpr.td.tsi.interfaces.Extrator;
+import br.edu.utfpr.td.tsi.interfaces.Transformador;
+
 import java.util.ArrayList;
 import java.util.List;
 

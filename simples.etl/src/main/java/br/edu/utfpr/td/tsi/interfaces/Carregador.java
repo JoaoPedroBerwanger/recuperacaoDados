@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi;
+package br.edu.utfpr.td.tsi.interfaces;
 
 import java.util.List;
 
