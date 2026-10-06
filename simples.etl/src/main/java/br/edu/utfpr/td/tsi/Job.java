@@ -13,15 +13,38 @@ public class Job<T, O> {
     private Transformador<T, O> transformador;
     private Carregador<O> carregador;
 
+    public Job() {
+    }
+
+    public Job(Extrator<T> extrator, Transformador<T, O> transformador, Carregador<O> carregador) {
+        this.extrator = extrator;
+        this.transformador = transformador;
+        this.carregador = carregador;
+    }
+
     public void executar() {
         List<O> dadosTransformados = new ArrayList<>();
         List<T> listaDadosBrutos = extrator.extrair();
 
         for (T dadosBruto : listaDadosBrutos) {
             O dadoTransformado = transformador.transformar(dadosBruto);
-            dadosTransformados.add(dadoTransformado);
+            if (dadoTransformado != null) {
+                dadosTransformados.add(dadoTransformado);
+            }
         }
 
         carregador.carregar(dadosTransformados);
+    }
+
+    public void setExtrator(Extrator<T> extrator) {
+        this.extrator = extrator;
+    }
+
+    public void setTransformador(Transformador<T, O> transformador) {
+        this.transformador = transformador;
+    }
+
+    public void setCarregador(Carregador<O> carregador) {
+        this.carregador = carregador;
     }
 }
